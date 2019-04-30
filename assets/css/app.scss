@@ -1,0 +1,263 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+main.container {
+    padding: 10px;
+}
+.page {
+    height: 100vh;
+    background-size: cover;
+    background-image: url('/images/background/532423499090.jpg');
+    background-color: #343a40;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+
+    &::after {
+        content         : "";
+        display         : block;
+        position        : fixed;
+        background-color: rgba(0, 0, 0, 0.5);
+        height          : 100%;
+        width           : 100%;
+        top             : 0;
+        left            : 0;
+    }
+
+
+}
+.link {
+    position: absolute;
+    z-index: 10;
+    top : 10px;
+    width: 100%;
+
+    &.link a {
+        color: #fff;
+    }
+}
+
+.center-page {
+    position: absolute;
+    z-index: 10;
+    top : 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 0px 0px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+.login-app-page {
+    position: relative;
+    width: 350px;
+}
+
+.box-frame {
+    display: none;
+    padding: 10px 20px 35px 20px;
+
+    &.active {
+        display: block;
+        transition: all 0.5s ease-out;
+    }
+}
+.login-click {
+    bottom: 10px;
+    position: absolute;
+}
+
+.message {
+    position: relative;
+}
+.message>.delete {
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+}
+
+form>div {
+    margin-top : 5px;
+}
+form button.submit {
+    margin : 10px 0;
+}
+.error-panel {
+    margin-top : 5px;
+}
+.alert-absolute {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 100000;
+    min-width: 350px;
+}
+/* left menu */
+.menu {
+    min-height: 100%;
+    background: #eeeeee;
+}
+.menu-label{
+    padding: 10px 10px 0 10px;
+}
+
+.__sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.__sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 48px; /* Height of navbar */
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@keyframes spin {
+    0% {transform:rotate(0deg);}
+    30% {transform:rotate(180deg);}
+    100% {transform:rotate(360deg);}
+}
+
+.is-loading {
+    color: transparent!important;
+    pointer-events: none;
+    position: relative;
+}
+.is-loading::after {
+    border-color: transparent transparent #fff #fff!important;
+    position: absolute;
+    left: calc(50% - (1em / 2));
+    top: calc(50% - (1em / 2));
+}
+.is-loading::after,
+.control.is-loading::after,
+.loader,
+.select.is-loading::after {
+    animation: spin .5s infinite linear;
+    border: 2px solid #dbdbdb;
+    border-radius: 290486px;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    content: "";
+    display: block;
+    height: 1em;
+    width: 1em;
+}
+
+.is-loading-dark::after {
+    border: 2px solid #222222;
+}
+
+/*
+ * HOME PAGE
+ */
+
+/*
+ * Custom translucent site header
+ */
+
+.site-header {
+    background-color: rgba(0, 0, 0, .85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+    color: #999;
+    transition: ease-in-out color .15s;
+}
+.site-header a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*
+ * Dummy devices (replace them with your own or something else entirely!)
+ */
+
+.product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -30%;
+    width: 300px;
+    height: 540px;
+    background-color: #333;
+    border-radius: 21px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+
+.product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+}
+
+.product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+}
+
+
+/*
+ * Extra utilities
+ */
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.flex-equal > * {
+    -ms-flex: 1;
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+@media (min-width: 768px) {
+    .flex-md-equal > * {
+        -ms-flex: 1;
+        -webkit-box-flex: 1;
+        flex: 1;
+    }
+}
+
+.overflow-hidden { overflow: hidden; }
+
+.pagination {
+    justify-content: center;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+    position: sticky;
+    top: 48px;
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

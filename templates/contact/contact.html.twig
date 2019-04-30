@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+    <h1>Contact</h1>
+
+    {{ form_start(contactForm, {'action' : path('contact_index')}) }}
+    <div class="row">
+        <div class="col-12">
+            {{ form_row(contactForm.lastname, { 'attr': {'class': 'input'} , 'label' : 'Prénom Nom'}) }}
+        </div>
+        <div class="col-6">
+            {{ form_row(contactForm.email, { 'attr': {'class': 'input'} , 'label' : 'E-mail'}) }}
+        </div>
+        <div class="col-6">
+            {{ form_row(contactForm.telephone, { 'attr': {'class': 'input'} , 'label' : 'Téléphone'}) }}
+        </div>
+        <div class="col-12">
+            {{ form_row(contactForm.message, { 'attr': {'class': 'input'} , 'label' : 'Message'}) }}
+            <button class="btn btn-primary btn-block submit">Envoyer</button>
+        </div>
+    </div>
+    {{ form_end(contactForm) }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{  encore_entry_script_tags('js/contact') }}
+{% endblock %}

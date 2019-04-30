@@ -1,0 +1,20 @@
+{% extends 'admin/admin.layout.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+
+{% block body %}
+
+    <h1>Modification</h1>
+
+    {{ form_start(postForm, {'action' : action, 'attr' : { 'id' : 'post_form' }}) }}
+
+    {{ form_row(postForm.title, {'label' : 'Titre'}) }}
+    {{ form_row(postForm.content,  {'label' : 'Contenu', 'attr': {'class': 'ckeditor is-loading-dark is-loading'}}) }}
+    {{ form_row(postForm.excerpt,  {'label' : 'Résumé'}) }}
+    {{ form_row(postForm.status,  {'label' : 'Status'}) }}
+    {{ form_row(postForm.type, {'label' : 'Type'}) }}
+
+    <button class="btn btn-primary submit">Enregistrer</button>
+    {{ form_end(postForm) }}
+
+{% endblock %}

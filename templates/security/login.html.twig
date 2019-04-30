@@ -1,0 +1,71 @@
+{% extends 'base_simple.html.twig' %}
+
+{% block title %}Nom du site{% endblock %}
+
+{% block body %}
+    <div class="page">
+        <div class="text-center link"><a href="{{ path('home') }}">Retour sur le site</a></div>
+        <div class="center-page">
+            <div class="login-app-page">
+                <div class="box-frame login-form active">
+                    <form method="post">
+                        <h5 class="title text-center mb-3">Connexion</h5>
+
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+
+                        <div>
+                            <label for="inputEmail" class="sr-only">Email</label>
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control input" placeholder="Email" required autofocus>
+                        </div>
+                        <div>
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" name="password" id="inputPassword" class="form-control input" placeholder="Password" required>
+                        </div>
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
+
+
+                        {#
+                            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                            See https://symfony.com/doc/current/security/remember_me.html
+
+                            <div class="checkbox mb-3">
+                                <label>
+                                    <input type="checkbox" name="_remember_me"> Remember me
+                                </label>
+                            </div>
+                        #}
+
+                        <button class="btn btn-block btn-outline-primary submit" type="submit">
+                            S'identifier
+                        </button>
+                    </form>
+                    <div><a href="#" data-form="password-form" class="login-click">Mot de passe oublié ?</a></div>
+                </div>
+                <div class="box-frame password-form">
+                    <form method="post">
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+
+                        <h5 class="title text-center mb-3">Mot de passe oublié </h5>
+                        <div>
+                            <label for="inputEmailPassword" class="sr-only">Email</label>
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmailPassword" class="form-control input" placeholder="Email" required>
+                        </div>
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
+                        <button class="btn btn-block btn-outline-primary submit" type="submit">
+                            Réinitialiser
+                        </button>
+                    </form>
+                    <div><a href="#" data-form="login-form" class="login-click">Retour à la connexion</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

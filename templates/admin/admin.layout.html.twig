@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8">
+    <title>{% block title %}Admin {% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('css/app') }}
+    {% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="{{ path('admin_dashboard') }}">Admin</a>
+    <a class="navbar-brand" href="{{ path('security_logout') }}">Déconnexion</a>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 mx-0 px-0">
+            {% block menu %}
+                {% include 'admin/admin.menu.html.twig' %}
+            {% endblock %}
+        </div>
+        <div class="col-9 my-3">
+            <main>
+                {% block body %}{% endblock %}
+            </main>
+        </div>
+    </div>
+</div>
+
+
+{% block javascripts %}
+    {{  encore_entry_script_tags('js/app') }}
+    {{  encore_entry_script_tags('js/adminPost') }}
+{% endblock %}
+</body>
+</html>
